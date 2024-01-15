@@ -1,4 +1,4 @@
-Face Detection Attendance System
+Face Recognition Attendance System
 This repository holds the source code for a Face Detection Attendance System built using Python, OpenCV, and face_recognition libraries. It leverages computer vision technology to automate attendance recording, offering increased accuracy and efficiency compared to traditional methods.
 
 Key Features:
