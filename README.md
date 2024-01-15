@@ -10,13 +10,21 @@ Future Enhancements: Explore opportunities for integrating machine learning for 
 Getting Started:
 
 Clone the repository.
+
 Install required libraries (reqiured are mention in requirement.md).
+
 Change rotines and timing according to you in the script by editing 'routine.py' file.
+
 Run the main script (app.pyw).
+
 Register new faces for taking attendance by 'New Registration' button available in the interface. 
+
 Take Attendance through the 'START' button by accesing 'start capture' and 'register attendance' function by given button.
+
 Access the web interface through 'SHOW ATTENDANCE' button.
+
 Export the excel format of that taken attendance of the current date by pressing 'Export Excel button'.
+
 
 
 
