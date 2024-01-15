@@ -5,16 +5,9 @@ import routine
 import os
 import pandas as pd
 import streamlit as sl
-
 import os
 import sys
-
-
 base_path = getattr(sys, "_MEIPASS", os.path.abspath(os.path.dirname(__file__)))
-
-
-
-
 current_date = dt.date.today()
 current_time = dt.datetime.now().time()
 hour=current_time.hour
@@ -23,9 +16,7 @@ current_time=(f'{hour}:{minute}')
 current_day=current_date.weekday()
 days=['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 current_day=days[current_day]
-
 current_subject=routine.subject_running()
-
 if not os.path.exists(f'Data/Attandance_list/Present_list_{current_date}.xlsx'):
     xl = ox.Workbook() 
     xl_act = xl.active
@@ -44,11 +35,8 @@ if not os.path.exists(f'Data/Attandance_list/Present_list_{current_date}.xlsx'):
     xl_act['B2'].font=heading_font
     xl_act['C2'].font=heading_font
     xl.save(f'Data/Attandance_list/Present_list_{current_date}.xlsx')
-
 def present(name):
     wxl=ox.load_workbook(f'Data/Attandance_list/Present_list_{current_date}.xlsx')
     wxl_act=wxl.active
     wxl_act.append([f'{name}',f'{current_time}',f'{current_subject}'])
     wxl.save(f'Data/Attandance_list/Present_list_{current_date}.xlsx')
-
-

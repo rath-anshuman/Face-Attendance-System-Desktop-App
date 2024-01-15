@@ -28,18 +28,18 @@
 # if __name__ == "__main__":
 #     show_notification()
 #     # time.sleep(3) # Wait for the notification to close
-import os
-import sys
+# import os
+# import sys
 
 
-base_path = getattr(sys, "_MEIPASS", os.path.abspath(os.path.dirname(__file__)))
+# base_path = getattr(sys, "_MEIPASS", os.path.abspath(os.path.dirname(__file__)))
 
-from win10toast import ToastNotifier
+# from win10toast import ToastNotifier
 
-def show_notification(head,message,time):
-    toast = ToastNotifier()
-    toast.show_toast(head, message, time,icon_path=False)
+# def show_notification(head,message,time):
+#     toast = ToastNotifier()
+#     toast.show_toast(head, message, time,icon_path=False)
 
-if __name__ == "__main__":
-    # show_notification()
-    pass
+# if __name__ == "__main__":
+#     # show_notification()
+#     pass

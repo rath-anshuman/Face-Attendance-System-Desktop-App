@@ -5,7 +5,6 @@ import numpy as np
 import pickle
 import customtkinter as tk
 from tkinter import messagebox
-# from notification import show_notification as notify
 import os
 import sys
 base_path = getattr(sys, "_MEIPASS", os.path.abspath(os.path.dirname(__file__)))
@@ -15,7 +14,7 @@ images=[]
 attendease_name=[]
 images_list=os.listdir(attendease_path)
 for photos in images_list:
-    current_image=cv2.imread(f'{attendease_path}\{photos}')
+    current_image=cv2.imread(f'{attendease_path}/{photos}')
     images.append(current_image)
     attendease_name.append(os.path.splitext(photos)[0])
 def create_encodings(images):
@@ -32,8 +31,5 @@ def encode_again():
     # Open the file in binary write mode and save the list to it
     with open(pickle_file, 'wb') as file:
         pickle.dump(known_face_encodings, file)
-    
-
-
 if __name__=='__main__':
     encode_again()

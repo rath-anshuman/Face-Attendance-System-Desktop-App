@@ -8,26 +8,17 @@ from tkinter import messagebox
 import subprocess
 import os
 import sys
-
-
 base_path = getattr(sys, "_MEIPASS", os.path.abspath(os.path.dirname(__file__)))
-
-
-
 file_path = ''
-
 tpl = tk.CTk()
-
 def file_find():
     global file_path
     file_path = filedialog.askopenfilename()
     if file_path:
         update_photo_label()
         enable_entry()
-
 def enable_entry():
     entry_box.configure(state='normal')
-
 def update_photo_label():
     if file_path:
         # notify(tpl,'Enter the name for the person',5)
@@ -37,7 +28,6 @@ def update_photo_label():
         photo_label.update()
         open_button.configure(state='disabled')
         entry_box.configure(state='normal')
-
 def change_and_copy():
     new_file_name = entry_box.get()
     if file_path and new_file_name:
@@ -48,37 +38,28 @@ def change_and_copy():
         destination_folder = os.path.dirname(new_path)
         if not os.path.exists(destination_folder):
             os.makedirs(destination_folder)
-
         shutil.copy(file_path, new_path)
-        
         # notify(tpl,f'Image Saved !! as {new_file_name}',3)
         tpl.destroy()
     # elif file_path:
     #     # notify(tpl,'please Select Image',5)
     # elif new_file_name:
     #     # notify(tpl,'Enter the name first !! then save!',7)
-
 def restore_main_window():
     # tpl.destroy()
     subprocess.Popen(["python", "app.pyw"])
 default_image = Image.open('Data/processing/user.png')
 default_image = tk.CTkImage(default_image,size=(250, 255))  # Resize the default image
-#
 photo_label = tk.CTkLabel(tpl, text='', image=default_image)
 photo_label.pack()
-
 entry_box = tk.CTkEntry(tpl, placeholder_text='Persons name...', width=110)
 entry_box.pack()
 entry_box.configure(state='disabled')
 # entry_box.configure(state='normal')
-
 open_button = tk.CTkButton(tpl, text='Select File', command=file_find)
 open_button.pack()
-
 copy_button = tk.CTkButton(tpl, text='Register', command=change_and_copy)
 copy_button.pack()
 # notify(tpl,'Select image than add name in the box',7)
 # tpl.protocol("WM_DELETE_WINDOW",restore_main_window)
-
 tpl.mainloop()
-
